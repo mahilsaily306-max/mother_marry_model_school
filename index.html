@@ -1,784 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mother Marry Model School - Excellence in Education</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'school-blue': '#1e40af',
-                        'school-gold': '#f59e0b',
-                        'school-light': '#eff6ff'
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            box-sizing: border-box;
-        }
-        
-        .hero-gradient {
-            background: linear-gradient(135deg, #2050ee 0%, #3b82f6 100%);
-        }
-        
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-        
-        .nav-link {
-            transition: color 0.3s ease;
-        }
-        
-        .nav-link:hover {
-            color: #f59e0b;
-        }
-        
-        .gallery-item {
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        
-        .gallery-item:hover {
-            transform: scale(1.05);
-        }
-        
-        .lightbox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .lightbox.active {
-            display: flex;
-        }
-        
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-        }
-        
-        .mobile-menu {
-            display: none;
-        }
-        
-        .mobile-menu.active {
-            display: block;
-        }
-        
-        @media (max-width: 768px) {
-            .desktop-nav {
-                display: none;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mother Marry Model School</title>
+
+  <!-- ✅ Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ✅ Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <link rel="icon" href="images/school_logo.png" type="image/png" />
 </head>
-<body class="font-sans">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between items-center py-4">
-                <div class="flex items-center space-x-3">
-                    <div class="w-12 h-12 bg-school-blue rounded-full flex items-center justify-center">
-                        <span class="text-white font-bold text-xl">MM</span>
-                    </div>
-                    <div>
-                        <h1 class="text-xl font-bold text-school-blue">Mother Marry Model School</h1>
-                        <p class="text-sm text-gray-600">Associates</p>
-                    </div>
-                </div>
-                
-                <!-- Desktop Navigation -->
-                <div class="desktop-nav hidden md:flex space-x-8">
-                    <a href="#home" class="nav-link text-gray-700 hover:text-school-gold font-medium">Home</a>
-                    <a href="#about" class="nav-link text-gray-700 hover:text-school-gold font-medium">About Us</a>
-                    <a href="#academics" class="nav-link text-gray-700 hover:text-school-gold font-medium">Academics</a>
-                    <a href="#notices" class="nav-link text-gray-700 hover:text-school-gold font-medium">Notices</a>
-                    <a href="#events" class="nav-link text-gray-700 hover:text-school-gold font-medium">Events</a>
-                    <a href="#contact" class="nav-link text-gray-700 hover:text-school-gold font-medium">Contact</a>
-                </div>
-                
-                <!-- Mobile Menu Button -->
-                <button class="md:hidden" onclick="toggleMobileMenu()">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-            
-            <!-- Mobile Navigation -->
-            <div id="mobileMenu" class="mobile-menu md:hidden pb-4">
-                <a href="#home" class="block py-2 text-gray-700 hover:text-school-gold">Home</a>
-                <a href="#about" class="block py-2 text-gray-700 hover:text-school-gold">About Us</a>
-                <a href="#academics" class="block py-2 text-gray-700 hover:text-school-gold">Academics</a>
-                <a href="#notices" class="block py-2 text-gray-700 hover:text-school-gold">Notices</a>
-                <a href="#events" class="block py-2 text-gray-700 hover:text-school-gold">Events</a>
-                <a href="#contact" class="block py-2 text-gray-700 hover:text-school-gold">Contact</a>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Home Section -->
-    <section id="home" class="hero-gradient text-white py-20">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h1 class="text-5xl md:text-6xl font-bold mb-6">Welcome to Mother Marry Model School</h1>
-            <p class="text-xl md:text-2xl mb-8 opacity-90">Nurturing Excellence, Building Character, Shaping Future Leaders
-            </p>
-            <p class="text-3xl md:text-2xl mb-8 opacity-100">"Come to Learn, Go to Serve"
-            </p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <button onclick="scrollToSection('about')" class="bg-school-gold hover:bg-yellow-500 text-white px-8 py-3 rounded-lg font-semibold transition duration-300">Learn More About Us</button>
-                <button onclick="scrollToSection('contact')" class="border-2 border-white hover:bg-white hover:text-school-blue text-white px-8 py-3 rounded-lg font-semibold transition duration-300">Get In Touch</button>
-            </div>
-        </div>
-    </section>
+<body class="bg-gray-50 text-gray-800">
 
-    <!-- Key Highlights -->
-    <section class="py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center text-school-blue mb-12">Why Choose Mother Marry Model School?</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="card-hover bg-white p-8 rounded-lg shadow-lg text-center">
-                    <div class="w-16 h-16 bg-school-blue rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-school-blue mb-3">Academic Excellence</h3>
-                    <p class="text-gray-600">Comprehensive curriculum designed to foster critical thinking and academic achievement in every student.</p>
-                </div>
-                
-                <div class="card-hover bg-white p-8 rounded-lg shadow-lg text-center">
-                    <div class="w-16 h-16 bg-school-gold rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-school-blue mb-3">Character Building</h3>
-                    <p class="text-gray-600">Strong emphasis on moral values, discipline, and character development to shape responsible citizens.</p>
-                </div>
-                
-                <div class="card-hover bg-white p-8 rounded-lg shadow-lg text-center">
-                    <div class="w-16 h-16 bg-school-blue rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-school-blue mb-3">Holistic Development</h3>
-                    <p class="text-gray-600">Focus on overall personality development through sports, arts, and extracurricular activities.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Us Section -->
-    <section id="about" class="py-16">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center text-school-blue mb-12">About Mother Marry Model School</h2>
-            
-            <div class="grid md:grid-cols-2 gap-12 mb-16">
-                <div>
-                    <h3 class="text-2xl font-bold text-school-blue mb-4">Our History</h3>
-                    <p class="text-gray-700 mb-6">Established with a vision to provide quality education in Shiv Nagar, Nagra, Jalandhar, Mother Marry Model School has been a beacon of learning and character development. Our institution has consistently maintained high standards of education while nurturing young minds to become responsible global citizens.</p>
-                    
-                    <h3 class="text-2xl font-bold text-school-blue mb-4">Our Vision</h3>
-                    <p class="text-gray-700">To be a leading educational institution that empowers students with knowledge, values, and skills necessary to excel in an ever-changing world while maintaining strong moral foundations.</p>
-                </div>
-                
-                <div>
-                    <h3 class="text-2xl font-bold text-school-blue mb-4">Our Mission-"Come to learn, Go to Serve"</h3>
-                    <p class="text-gray-700 mb-6">To provide comprehensive education that develops intellectual curiosity, critical thinking, and moral character in our students. We strive to create a nurturing environment where every child can discover their potential and achieve excellence.</p>
-                    
-                    <h3 class="text-2xl font-bold text-school-blue mb-4">Principal's Message</h3>
-                    <p class="text-gray-700 italic">"At Mother Marry Model School, we believe that education is not just about academic achievement, but about shaping complete individuals who will contribute positively to society. Our dedicated faculty and comprehensive programs ensure that every student receives the attention and guidance they deserve."</p>
-                </div>
-            </div>
-            
-            <div class="bg-school-light p-8 rounded-lg">
-                <h3 class="text-2xl font-bold text-school-blue mb-6 text-center">Our Dedicated Staff</h3>
-                <p class="text-gray-700 text-center">Our experienced and qualified teaching staff is committed to providing the highest quality education. With a perfect blend of traditional values and modern teaching methodologies, our educators ensure that each student receives personalized attention and guidance to reach their full potential.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Academics Section -->
-    <section id="academics" class="py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center text-school-blue mb-12">Academics & Classes</h2>
-            
-            <div class="grid md:grid-cols-2 gap-12 mb-12">
-                <div>
-                    <h3 class="text-2xl font-bold text-school-blue mb-6">Our Curriculum</h3>
-                    <p class="text-gray-700 mb-4">Our comprehensive curriculum is designed to meet the highest educational standards while fostering creativity and critical thinking. We follow a balanced approach that includes:</p>
-                    <ul class="list-disc list-inside text-gray-700 space-y-2">
-                        <li>Core academic subjects with strong foundation</li>
-                        <li>Language development programs</li>
-                        <li>Science and mathematics excellence</li>
-                        <li>Social studies and environmental awareness</li>
-                        <li>Arts, crafts, and creative expression</li>
-                        <li>Physical education and sports</li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-2xl font-bold text-school-blue mb-6">Teaching Methods</h3>
-                    <p class="text-gray-700 mb-4">We employ modern, student-centered teaching approaches:</p>
-                    <ul class="list-disc list-inside text-gray-700 space-y-2">
-                        <li>Interactive and engaging classroom sessions</li>
-                        <li>Hands-on learning experiences</li>
-                        <li>Technology-integrated education</li>
-                        <li>Individual attention and personalized learning</li>
-                        <li>Regular assessments and feedback</li>
-                        <li>Project-based learning activities</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h4 class="text-xl font-bold text-school-blue mb-3">Primary Classes</h4>
-                    <p class="text-gray-700 mb-3">Nursery to Class V</p>
-                    <ul class="text-sm text-gray-600 space-y-1">
-                        <li>• Foundation building</li>
-                        <li>• Basic literacy and numeracy</li>
-                        <li>• Creative activities</li>
-                        <li>• Moral education</li>
-                    </ul>
-                </div>
-                
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h4 class="text-xl font-bold text-school-blue mb-3">Middle Classes</h4>
-                    <p class="text-gray-700 mb-3">Class VI to Class VIII</p>
-                    <ul class="text-sm text-gray-600 space-y-1">
-                        <li>• Advanced curriculum</li>
-                        <li>• Subject specialization</li>
-                        <li>• Critical thinking development</li>
-                        <li>• Leadership skills</li>
-                    </ul>
-                </div> 
-                
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h4 class="text-xl font-bold text-school-blue mb-3">Senior Classes</h4>
-                    <p class="text-gray-700 mb-3">Class IX to Class X</p>
-                    <ul class="text-sm text-gray-600 space-y-1">
-                        <li>• Board exam preparation</li>
-                        <li>• Career guidance</li>
-                        <li>• Advanced subjects</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Notices Section -->
-    <section id="notices" class="py-16">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center text-school-blue mb-12">Notices & Announcements</h2>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="space-y-6">
-                    <div class="bg-white border-l-4 border-school-gold p-6 shadow-lg rounded-r-lg">
-                        <div class="flex justify-between items-start mb-3">
-                            <h3 class="text-lg font-bold text-school-blue">Annual Sports Day 2025</h3>
-                            <span class="text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded">New</span>
-                        </div>
-                        <p class="text-gray-700 mb-2">Annual Sports Day will be held on March 15, 2025. All students are required to participate. Practice sessions start from March 1st.</p>
-                        <p class="text-sm text-gray-500">Posted: october 20, 2025</p>
-                    </div>
-                    
-                    <div class="bg-white border-l-4 border-school-blue p-6 shadow-lg rounded-r-lg">
-                        <div class="flex justify-between items-start mb-3">
-                            <h3 class="text-lg font-bold text-school-blue">Parent-Teacher Meeting</h3>
-                            <span class="text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded">Important</span>
-                        </div>
-                        <p class="text-gray-700 mb-2">Monthly parent-teacher meeting scheduled for February 28, 2024, from 10:00 AM to 2:00 PM. Please collect your time slots from the office.</p>
-                        <p class="text-sm text-gray-500">Posted: october 15, 2025</p>
-                    </div>
-                    
-                    <div class="bg-white border-l-4 border-green-500 p-6 shadow-lg rounded-r-lg">
-                        <div class="flex justify-between items-start mb-3">
-                            <h3 class="text-lg font-bold text-school-blue">Science Exhibition Results</h3>
-                            <span class="text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded">Results</span>
-                        </div>
-                        <p class="text-gray-700 mb-2">Congratulations to all participants of the Science Exhibition. Results are now available on the notice board. Prize distribution ceremony on February 25, 2025.</p>
-                        <p class="text-sm text-gray-500">Posted: october 12, 2025</p>
-                    </div>
-                </div>
-                
-                <div class="space-y-6">
-                    <div class="bg-white border-l-4 border-red-500 p-6 shadow-lg rounded-r-lg">
-                        <div class="flex justify-between items-start mb-3">
-                            <h3 class="text-lg font-bold text-school-blue">Fee Payment Reminder</h3>
-                            <span class="text-sm text-gray-500 bg-red-100 text-red-600 px-2 py-1 rounded">Urgent</span>
-                        </div>
-                        <p class="text-gray-700 mb-2">Monthly fees for October 2025 are due by october 28, 2025. Late fee charges will apply after the due date. Please clear dues at the earliest.</p>
-                        <p class="text-sm text-gray-500">Posted: october 18, 2025</p>
-                    </div>
-                    
-                    <div class="bg-white border-l-4 border-purple-500 p-6 shadow-lg rounded-r-lg">
-                        <div class="flex justify-between items-start mb-3">
-                            <h3 class="text-lg font-bold text-school-blue">Cultural Program Auditions</h3>
-                            <span class="text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded">Event</span>
-                        </div>
-                        <p class="text-gray-700 mb-2">Auditions for the annual cultural program will be held on november 5, 2025. Students interested in dance, music, and drama can register with their class teachers.</p>
-                        <p class="text-sm text-gray-500">Posted: october 10, 2025</p>
-                    </div>
-                    
-                    <div class="bg-white border-l-4 border-school-gold p-6 shadow-lg rounded-r-lg">
-                        <div class="flex justify-between items-start mb-3">
-                            <h3 class="text-lg font-bold text-school-blue">Holiday Notice</h3>
-                            <span class="text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded">Holiday</span>
-                        </div>
-                        <p class="text-gray-700 mb-2">School will remain closed on october 20, 2025 (Diwali Festival). Regular classes will resume on october 24, 2025. Enjoy the festival with your families!</p>
-                        <p class="text-sm text-gray-500">Posted: october 8, 2025</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Events & Gallery Section -->
-    <section id="events" class="py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center text-school-blue mb-12">Events</h2>
-            
-            <!-- Recent Events -->
-            <div class="mb-16">
-                <h3 class="text-2xl font-bold text-school-blue mb-8">Recent Events</h3>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="card-hover bg-white rounded-lg shadow-lg overflow-hidden">
-                        <div class="h-48 bg-gradient-to-br from-school-blue to-blue-600 flex items-center justify-center">
-                            <div class="text-center text-white">
-                                <svg class="w-16 h-16 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                                </svg>
-                                <p class="text-sm">Daily Activities</p>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-lg font-bold text-school-blue mb-2">Daily New Activities</h4>
-                            <p class="text-gray-600 text-sm mb-3">Students performs creative activities on daily basis including thier studies</p>
-                            <p class="text-xs text-gray-500">October 9, 2025</p>
-                        </div>
-                    </div>
-                    
-                    <div class="card-hover bg-white rounded-lg shadow-lg overflow-hidden">
-                        <div class="h-48 bg-gradient-to-br from-school-gold to-yellow-600 flex items-center justify-center">
-                            <div class="text-center text-white">
-                                <svg class="w-16 h-16 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                                </svg>
-                                <p class="text-sm">Summer Camp</p>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-lg font-bold text-school-blue mb-2">Summer Camp</h4>
-                            <p class="text-gray-600 text-sm mb-3">Unleash your potential this summer! Our specialized camp offers hands-on projects and expert guidance to spark creativity and learning.</p>
-                            <p class="text-xs text-gray-500">June 26, 2025</p>
-                        </div>
-                    </div>
-                    
-                    <div class="card-hover bg-white rounded-lg shadow-lg overflow-hidden">
-                        <div class="h-48 bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center">
-                            <div class="text-center text-white">
-                                <svg class="w-16 h-16 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M17.5 12c0 .28-.11.53-.29.71l-3.54 3.54c-.18.18-.43.29-.71.29s-.53-.11-.71-.29L9.71 13.71c-.18-.18-.29-.43-.29-.71s.11-.53.29-.71l2.54-2.54c.18-.18.43-.29.71-.29s.53.11.71.29l3.54 3.54c.18.18.29.43.29.71z"/>
-                                </svg>
-                                <p class="text-sm"> Sports</p>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-lg font-bold text-school-blue mb-2">Sports Meet</h4>
-                            <p class="text-gray-600 text-sm mb-3">Inter-house sports competition featuring athletics, team games, and individual events. Great display of sportsmanship and talent.</p>
-                            <p class="text-xs text-gray-500">January 15, 2025</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-    <!-- Contact Section -->
-    <section id="contact" class="py-16">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center text-school-blue mb-12">Contact Us</h2>
-            
-            <div class="grid md:grid-cols-2 gap-12">
-                <!-- Contact Information -->
-                <div>
-                    <h3 class="text-2xl font-bold text-school-blue mb-6">Get In Touch</h3>
-                    
-                    <div class="space-y-6">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-school-blue rounded-full flex items-center justify-center flex-shrink-0">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-school-blue">Address</h4>
-                                <p class="text-gray-700">Mother Marry Model School (Associates)<br>Shiv Nagar, Nagra<br>Jalandhar - 144013<br>Punjab, India</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-school-gold rounded-full flex items-center justify-center flex-shrink-0">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-school-blue">Phone Numbers</h4>
-                                <p class="text-gray-700">
-                                    <a href="tel:+919914092786" class="hover:text-school-gold">+91 99140 92786</a><br>
-                                    <a href="tel:+916283626082" class="hover:text-school-gold">+91 62836 26082</a>
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-school-blue rounded-full flex items-center justify-center flex-shrink-0">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-school-blue">Email</h4>
-                                <p class="text-gray-700">
-                                    <a href="mailto:mothermarry555@gmail.com" class="hover:text-school-gold">mothermarry555@gmail.com</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Google Maps -->
-                    <div class="mt-8">
-                        <h4 class="font-bold text-school-blue mb-4">Location Map</h4>
-                        <div class="bg-gray-200 h-64 rounded-lg flex items-center justify-center">
-                            <div class="text-center text-gray-600">
-                                <svg class="w-16 h-16 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                                </svg>
-                                <p class="text-sm">Interactive Map</p>
-                                <p class="text-xs">Shiv Nagar, Nagra, Jalandhar</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Contact Form -->
-                <div>
-                    <h3 class="text-2xl font-bold text-school-blue mb-6">Send us a Message</h3>
-                    
-                    <form id="contactForm" class="space-y-6">
-                        <div class="grid md:grid-cols-2 gap-4">
-                            <div>
-                                <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
-                                <input type="text" id="firstName" name="firstName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-school-blue focus:border-transparent">
-                            </div>
-                            <div>
-                                <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
-                                <input type="text" id="lastName" name="lastName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-school-blue focus:border-transparent">
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
-                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-school-blue focus:border-transparent">
-                        </div>
-                        
-                        <div>
-                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-school-blue focus:border-transparent">
-                        </div>
-                        
-                        <div>
-                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject *</label>
-                            <select id="subject" name="subject" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-school-blue focus:border-transparent">
-                                <option value="">Select a subject</option>
-                                <option value="admission">Admission Inquiry</option>
-                                <option value="academic">Academic Information</option>
-                                <option value="fees">Fee Structure</option>
-                                <option value="transport">Transportation</option>
-                                <option value="general">General Inquiry</option>
-                                <option value="complaint">Complaint/Suggestion</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message *</label>
-                            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-school-blue focus:border-transparent" placeholder="Please describe your inquiry in detail..."></textarea>
-                        </div>
-                        
-                        <!-- Simple Spam Protection -->
-                        <div>
-                            <label for="captcha" class="block text-sm font-medium text-gray-700 mb-2">Security Check: What is 5 + 3? *</label>
-                            <input type="number" id="captcha" name="captcha" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-school-blue focus:border-transparent" placeholder="Enter the answer">
-                        </div>
-                        
-                        <button type="submit" class="w-full bg-school-blue hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
-                            Send Message
-                        </button>
-                    </form>
-                    
-                    <div id="formMessage" class="mt-4 p-4 rounded-lg hidden"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-school-blue text-white py-12">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid md:grid-cols-3 gap-8">
-                <div>
-                    <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-10 h-10 bg-school-gold rounded-full flex items-center justify-center">
-                            <span class="text-white font-bold">MM</span>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-bold">Mother Marry Model School</h3>
-                            <p class="text-sm opacity-80">Associates</p>
-                        </div>
-                    </div>
-                    <p class="text-sm opacity-80 mb-4">Nurturing Excellence, Building Character, Shaping Future Leaders since our establishment in Jalandhar.</p>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="#home" class="opacity-80 hover:opacity-100 hover:text-school-gold transition duration-300">Home</a></li>
-                        <li><a href="#about" class="opacity-80 hover:opacity-100 hover:text-school-gold transition duration-300">About Us</a></li>
-                        <li><a href="#academics" class="opacity-80 hover:opacity-100 hover:text-school-gold transition duration-300">Academics</a></li>
-                        <li><a href="#notices" class="opacity-80 hover:opacity-100 hover:text-school-gold transition duration-300">Notices</a></li>
-                        <li><a href="#events" class="opacity-80 hover:opacity-100 hover:text-school-gold transition duration-300">Events</a></li>
-                        <li><a href="#contact" class="opacity-80 hover:opacity-100 hover:text-school-gold transition duration-300">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-bold mb-4">Contact Information</h4>
-                    <div class="space-y-2 text-sm opacity-80">
-                        <p>Shiv Nagar, Nagra, Jalandhar - 144013</p>
-                        <p>Phone: +91 99140 92786</p>
-                        <p>Phone: +91 62836 26082</p>
-                        <p>Email: mothermarry555@gmail.com</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="border-t border-blue-600 mt-8 pt-8 text-center">
-                <p class="text-sm opacity-80">&copy; 2025 Mother Marry Model School (Associates). All rights reserved. | Designed with care for education excellence.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Lightbox -->
-    <div id="lightbox" class="lightbox">
-        <div class="relative">
-            <div id="lightboxContent" class="bg-white p-8 rounded-lg max-w-2xl mx-4">
-                <button onclick="closeLightbox()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-                <div id="lightboxBody"></div>
-            </div>
-        </div>
+  <!-- Header / Navbar -->
+  <header class="bg-blue-900 text-white shadow-lg">
+    <div class="max-w-7xl mx-auto flex justify-between items-center py-4 px-6">
+      <div class="flex items-center space-x-3">
+        <img src="images/school_logo.png" alt="School Logo" class="w-12 h-12 rounded-full">
+        <h1 class="text-2xl font-bold uppercase">Mother Marry Model School</h1>
+      </div>
+      <nav class="desktop-nav space-x-6 text-sm md:text-base">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#academics" class="nav-link">Academics</a>
+        <a href="#admissions" class="nav-link">Admissions</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
     </div>
+  </header>
 
-    <!-- TEXT EDITING GUIDE:
-    
-    To edit any text on this website:
-    1. Find the text you want to change in the code
-    2. Simply replace it with your new text
-    3. Keep the HTML tags (like <h1>, <p>, etc.) unchanged
-    
-    Common text sections you might want to edit:
-    - School name: "Mother Marry Model School"
-    - Address: "Shiv Nagar, Nagra, Jalandhar - 144013"
-    - Phone numbers: "9914092786" and "6283626082"
-    - Email: "mothermarry555@gmail.com"
-    - Welcome message: "Nurturing Excellence, Building Character..."
-    - Principal's message in the About section
-    - Notice titles and content
-    - Event descriptions
-    
-    Example: To change the school motto, find:
-    <p class="text-xl md:text-2xl mb-8 opacity-90">Nurturing Excellence, Building Character, Shaping Future Leaders</p>
-    
-    And replace the text between the tags:
-    <p class="text-xl md:text-2xl mb-8 opacity-90">Your New School Motto Here</p>
-    -->
+  <!-- Hero Section -->
+  <section id="home" class="hero-gradient relative bg-cover bg-center h-[80vh] flex flex-col items-center justify-center text-white text-center px-4">
+    <h2 class="text-4xl md:text-6xl font-bold mb-4">Welcome to Mother Marry Model School</h2>
+    <p class="text-lg md:text-xl max-w-2xl">Building strong foundations for bright futures through quality education and holistic development.</p>
+    <a href="#admissions" class="mt-6 bg-yellow-400 hover:bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold shadow-md">Enroll Now</a>
+  </section>
 
-    <script>
-        // Mobile menu toggle
-        function toggleMobileMenu() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            mobileMenu.classList.toggle('active');
-        }
+  <!-- About Section -->
+  <section id="about" class="py-16 px-6 bg-white">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-3xl font-bold text-blue-900 mb-6">About Us</h2>
+      <p class="text-gray-600 leading-relaxed">
+        Mother Marry Model School is committed to nurturing the intellectual, moral, and social growth of every child. 
+        With experienced faculty and a modern learning environment, we aim to develop well-rounded individuals who are 
+        confident, responsible, and compassionate citizens.
+      </p>
+    </div>
+  </section>
 
-        // Smooth scrolling
-        function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
+  <!-- Academics Section -->
+  <section id="academics" class="py-16 px-6 bg-gray-100">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold text-blue-900 text-center mb-10">Our Academics</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-2xl shadow-md card-hover">
+          <h3 class="text-xl font-semibold text-blue-800 mb-3">Primary Section</h3>
+          <p class="text-gray-600">Focused on foundational learning, creativity, and confidence-building through interactive teaching methods.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow-md card-hover">
+          <h3 class="text-xl font-semibold text-blue-800 mb-3">Secondary Section</h3>
+          <p class="text-gray-600">Encourages analytical thinking, teamwork, and subject mastery with a balance of academics and co-curriculars.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow-md card-hover">
+          <h3 class="text-xl font-semibold text-blue-800 mb-3">Senior Secondary</h3>
+          <p class="text-gray-600">Prepares students for higher education with specialized streams and expert guidance for competitive exams.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        // Navigation link smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                    // Close mobile menu if open
-                    document.getElementById('mobileMenu').classList.remove('active');
-                }
-            });
-        });
+  <!-- Admissions Section -->
+  <section id="admissions" class="py-16 px-6 bg-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold text-blue-900 mb-6">Admissions Open</h2>
+      <p class="text-gray-600 mb-6">Admissions are now open for the upcoming academic session. We welcome students from diverse backgrounds who wish to excel in academics, sports, and co-curricular activities.</p>
+      <a href="#contact" class="bg-blue-900 hover:bg-blue-800 text-white px-8 py-3 rounded-full font-semibold shadow-md transition">Apply Now</a>
+    </div>
+  </section>
 
-        // Gallery lightbox functionality
-        function openLightbox(type) {
-            const lightbox = document.getElementById('lightbox');
-            const lightboxBody = document.getElementById('lightboxBody');
-            
-            const content = {
-                classroom: {
-                    title: 'Modern Classrooms',
-                    description: 'Our well-equipped classrooms provide an ideal learning environment with modern teaching aids, comfortable seating, and excellent lighting to enhance the educational experience.'
-                },
-                library: {
-                    title: 'Well-Stocked Library',
-                    description: 'Our library houses thousands of books, reference materials, and digital resources to support students\' academic growth and foster a love for reading.'
-                },
-                playground: {
-                    title: 'Sports & Recreation',
-                    description: 'Spacious playground facilities for various sports activities including cricket, football, basketball, and athletics to promote physical fitness and teamwork.'
-                },
-                lab: {
-                    title: 'Science Laboratory',
-                    description: 'State-of-the-art science laboratories equipped with modern instruments and safety equipment for hands-on learning and experimentation.'
-                },
-                events: {
-                    title: 'School Events',
-                    description: 'Regular cultural events, competitions, and celebrations that provide students with opportunities to showcase their talents and build confidence.'
-                },
-                assembly: {
-                    title: 'Morning Assembly',
-                    description: 'Daily morning assemblies that instill discipline, patriotism, and moral values while keeping students informed about school activities.'
-                },
-                cultural: {
-                    title: 'Cultural Activities',
-                    description: 'Rich cultural programs including dance, music, drama, and art competitions that nurture creativity and artistic expression.'
-                },
-                awards: {
-                    title: 'Awards & Recognition',
-                    description: 'Regular recognition and awards for academic excellence, sports achievements, and outstanding character development.'
-                }
-            };
-            
-            const item = content[type];
-            lightboxBody.innerHTML = `
-                <h3 class="text-2xl font-bold text-school-blue mb-4">${item.title}</h3>
-                <div class="h-64 bg-gradient-to-br from-school-blue to-blue-600 rounded-lg mb-4 flex items-center justify-center">
-                    <div class="text-center text-white">
-                        <svg class="w-16 h-16 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-                        </svg>
-                        <p class="text-sm">${item.title}</p>
-                    </div>
-                </div>
-                <p class="text-gray-700">${item.description}</p>
-            `;
-            
-            lightbox.classList.add('active');
-        }
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 px-6 bg-gray-100">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-3xl font-bold text-blue-900 mb-8">Contact Us</h2>
+      <p class="text-gray-600 mb-8">We’d love to hear from you! Get in touch with us for admission inquiries, feedback, or any information.</p>
 
-        function closeLightbox() {
-            document.getElementById('lightbox').classList.remove('active');
-        }
+      <div class="grid md:grid-cols-2 gap-10">
+        <div class="text-left">
+          <h3 class="text-xl font-semibold text-blue-800 mb-3">Address</h3>
+          <p class="text-gray-600">Mother Marry Model School<br>123 Education Lane, Cityville, State<br>Pin Code: 123456</p>
 
-        // Close lightbox when clicking outside
-        document.getElementById('lightbox').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeLightbox();
-            }
-        });
+          <h3 class="text-xl font-semibold text-blue-800 mt-6 mb-3">Contact Details</h3>
+          <p class="text-gray-600">Phone: +91-9876543210<br>Email: info@mothermarrymodelschool.com</p>
+        </div>
 
-        // Contact form handling
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const captcha = parseInt(formData.get('captcha'));
-            const messageDiv = document.getElementById('formMessage');
-            
-            // Simple spam protection
-            if (captcha !== 8) {
-                messageDiv.className = 'mt-4 p-4 rounded-lg bg-red-100 text-red-700';
-                messageDiv.textContent = 'Security check failed. Please enter the correct answer for 5 + 3.';
-                messageDiv.classList.remove('hidden');
-                return;
-            }
-            
-            // Simulate form submission
-            messageDiv.className = 'mt-4 p-4 rounded-lg bg-green-100 text-green-700';
-            messageDiv.textContent = 'Thank you for your message! We will get back to you within 24 hours.';
-            messageDiv.classList.remove('hidden');
-            
-            // Reset form
-            this.reset();
-            
-            // Hide message after 5 seconds
-            setTimeout(() => {
-                messageDiv.classList.add('hidden');
-            }, 5000);
-        });
+        <form class="bg-white p-6 rounded-2xl shadow-md text-left">
+          <label class="block mb-2 font-semibold text-gray-700">Name</label>
+          <input type="text" class="w-full mb-4 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-800">
 
-        // Add active navigation highlighting
-        window.addEventListener('scroll', function() {
-            const sections = ['home', 'about', 'academics', 'notices', 'events', 'contact'];
-            const navLinks = document.querySelectorAll('.nav-link');
-            
-            let current = '';
-            sections.forEach(section => {
-                const element = document.getElementById(section);
-                if (element) {
-                    const rect = element.getBoundingClientRect();
-                    if (rect.top <= 100 && rect.bottom >= 100) {
-                        current = section;
-                    }
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('text-school-gold');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('text-school-gold');
-                }
-            });
-        });
-    </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98bebf8f36f559ee',t:'MTc2MDAyMjAzNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+          <label class="block mb-2 font-semibold text-gray-700">Email</label>
+          <input type="email" class="w-full mb-4 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-800">
+
+          <label class="block mb-2 font-semibold text-gray-700">Message</label>
+          <textarea rows="4" class="w-full mb-4 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-800"></textarea>
+
+          <button type="submit" class="bg-blue-900 hover:bg-blue-800 text-white px-6 py-2 rounded-full font-semibold shadow-md transition">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-blue-900 text-white text-center py-6">
+    <p class="text-sm">&copy; 2025 Mother Marry Model School. All Rights Reserved.</p>
+  </footer>
+
+</body>
 </html>
